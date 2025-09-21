@@ -1,0 +1,91 @@
+Build a full-stack web application called **Local Product Finder**.
+
+### Core Features
+
+1. **Map View**
+
+   * Use **Leaflet.js** with **OpenStreetMap** (or Google Maps API if easier).
+   * Display pins for each store, using their logo as the pin icon.
+   * Clicking a pin shows a popup with:
+
+     * Store name + logo
+     * Location & address
+     * Sample product images + prices
+   * Pins should highlight when the corresponding store is clicked in the list view.
+
+2. **List View**
+
+   * Card-style list of stores with:
+
+     * Store name + logo
+     * Distance from user (use geolocation API if possible)
+     * Product thumbnails
+     * Price ranges
+   * Clicking a store highlights its pin on the map.
+   * Users should be able to scroll through results easily.
+
+3. **Toggle Between Views**
+
+   * A simple toggle (buttons or switch) to change between **Map View** and **List View**.
+   * Default to Map View but remember the user’s last choice.
+
+4. **Filters**
+
+   * Search bar for product category (e.g., “hardware,” “roof,” “eggs”).
+   * Filter by **price range** (e.g., ₱200–₱500).
+   * Filters should update both the map pins and the list results.
+
+5. **Product Images**
+
+   * Each store can upload product images (stored in DB).
+   * Show thumbnail previews in list view and small previews in map popups.
+   * Clicking an image should show a larger view.
+
+6. **Interactivity**
+
+   * Clicking store name in list zooms/highlights pin on map.
+   * Clicking map pin scrolls/highlights the store in list.
+   * Smooth transitions, no full page reloads.
+
+---
+
+### Tech Stack
+
+* **Frontend:** React (with TailwindCSS for styling).
+* **Map:** Leaflet.js (with OpenStreetMap).
+* **Backend:** Node.js + Express.
+* **Database:** MongoDB (store products, prices, images, store details, coordinates).
+
+---
+
+### Data Models
+
+* **Store**
+
+  * `id`
+  * `name`
+  * `logo` (image URL)
+  * `location` (latitude, longitude, address)
+  * `categories` (e.g., hardware, food, eggs)
+
+* **Product**
+
+  * `id`
+  * `store_id`
+  * `name`
+  * `price`
+  * `image` (image URL)
+  * `category`
+
+---
+
+### Bonus Features (optional if time permits)
+
+* User reviews/ratings per store.
+* Distance calculation from current user location.
+* Mobile-friendly responsive layout.
+* Store registration form (to add new stores/products).
+
+---
+
+**Goal:** Create a working prototype where users in Bohol can search for products (e.g., hardware, duck eggs, balut), filter by category and price, and either explore via **map** or **list view**. It should be **interactive, easy to use, and expandable globally**.
